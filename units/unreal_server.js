@@ -1,18 +1,29 @@
-import WebSocket, {WebSocketServer} from 'ws';
-import {randomUUID} from 'crypto';
-import {unreal_client} from './unreal_client.js';
-import {LOG} from '../logging/logging.js';
+const WebSocket = require('ws').Server;
+const { createServer } = require("https");
+const fs = require("fs");
 
-import {json_rpc_request} from '../json_rpc/json_rpc_request.js';
-import {json_rpc_response} from '../json_rpc/json_rpc_response.js'
+var randomUUID = require("crypto").randomUUID;
+var unreal_client = require("./unreal_client.js").unreal_client;
+var LOG = require("../logging/logging.js").LOG;
+var json_rpc_request = require("../json_rpc/json_rpc_request.js").json_rpc_request;
+var json_rpc_response = require("../json_rpc/json_rpc_response.js").json_rpc_response;
+var clients = require("../data/clients").clients;
 
-var server = new WebSocketServer({ port: 8080 });
-var clients = new Map();
+
+const server = createServer({
+            cert: fs.readFileSync('cert/cert.pem'),
+            key: fs.readFileSync('cert/key.pem'),
+});
+
+const socket = new WebSocket({server});
+server.listen(7456);
+
+
 
 class unreal_server {
 
     constructor(){
-        unreal_server_on_connection(server, clients);
+        unreal_server_on_connection(socket, clients);
     }
 };
 
@@ -30,11 +41,7 @@ function unreal_server_on_connection(server, clients){
             result: {method: "bridge_socket_open" }
         }));
     });
+    console.error("Server started");
 };
 
-
-
-
-
-
-export { unreal_server, clients };
+module.exports = {unreal_server};

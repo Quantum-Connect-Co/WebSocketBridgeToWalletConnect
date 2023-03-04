@@ -1,7 +1,23 @@
 {
-  "type": "module",
   "dependencies": {
-    "chalk": "^5.1.2",
+    "chalk": "^4.1.2",
     "ws": "^8.2.3"
-  }
+  },
+  "name": "jsbridgeunrealengine",
+  "description": "This sample is meant for testing out the capabilities of Unreal Engine's WebSocket client interface locally, but can be sued with non-UE clients too. All the server does is assign unique IDs to client connections, broadcast messages received from a client to all the connected clients, and tell clients how many connected clients there are every 15 seconds.",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shkvik/unreal_wallet_connect_bridge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shkvik/unreal_wallet_connect_bridge/issues"
+  },
+  "homepage": "https://github.com/shkvik/unreal_wallet_connect_bridge#readme"
 }

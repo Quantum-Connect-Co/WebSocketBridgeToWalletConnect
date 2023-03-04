@@ -1,4 +1,4 @@
-import chalk from 'chalk';
+var chalk = require("chalk");
 
 class LOG {
     static INFO(message){
@@ -64,4 +64,7 @@ class LOG {
 
 
 
-export {LOG};
+var script = {
+     
+}
+module.exports = {LOG};

@@ -1,7 +1,8 @@
-import { WebSocket } from 'ws';
-import {LOG} from '../logging/logging.js';
-import {unreal_wc_client} from './unreal_wc_client.js';
-import { clients } from './unreal_server.js';
+var WebSocket = require("ws");
+var LOG = require("../logging/logging.js").LOG;
+var unreal_wc_client = require("./unreal_wc_client.js").unreal_wc_client;
+var clients = require("../data/clients").clients;
+
 
 class unreal_client {
     wc_client = null;
@@ -72,5 +73,4 @@ function on_get_message(unreal_client){
     });
 };
 
-
-export {unreal_client};
+module.exports = {unreal_client};

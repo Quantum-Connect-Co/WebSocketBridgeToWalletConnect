@@ -1,6 +1,7 @@
-import { WebSocket } from 'ws';
-import {LOG} from '../logging/logging.js';
-import {json_rpc_response} from '../json_rpc/json_rpc_response.js';
+var WebSocket = require("ws");
+var LOG = require("../logging/logging.js").LOG;
+var json_rpc_response = require("../json_rpc/json_rpc_response.js").json_rpc_response;
+
 
 class unreal_wc_client{
 
@@ -85,5 +86,4 @@ function generateWcConnectUrl(bridge){
     return `wss://${bridge}.bridge.walletconnect.org`;
 };
 
-
-export {unreal_wc_client };
+module.exports = {unreal_wc_client};

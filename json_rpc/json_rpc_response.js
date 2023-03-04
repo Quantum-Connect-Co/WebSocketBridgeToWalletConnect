@@ -9,4 +9,10 @@ function json_rpc_response(response){
     return JSON.stringify(response);
 }
 
-export {json_rpc_response};
+
+
+// var script = {
+//     json_rpc_response
+// }
+module.exports = {json_rpc_response};
+

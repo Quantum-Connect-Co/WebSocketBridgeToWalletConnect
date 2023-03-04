@@ -1,7 +1,13 @@
-import * as readline from 'node:readline/promises';
-import { stdin as input, stdout as output } from 'node:process';
-import {LOG} from '../logging/logging.js';
-import { clients } from '../units/unreal_server.js';
+// import * as readline from 'node:readline/promises';
+// import { stdin as input, stdout as output } from 'node:process';
+// import {LOG} from '../logging/logging.js';
+// import { clients } from '../units/unreal_server.js';
+
+var readline = require("node:readline/promises");
+var stdin = require("node:process");
+var LOG = require("../logging/logging.js").LOG;
+var clients = require("../data/clients").clients;
+
 
 const rl = readline.createInterface({ 
     input: process.stdin,
@@ -52,4 +58,8 @@ function pasreStr(str){
     };
 }
 
-export {rl};
+var script = {
+    rl 
+}
+module.exports = {rl};
+
